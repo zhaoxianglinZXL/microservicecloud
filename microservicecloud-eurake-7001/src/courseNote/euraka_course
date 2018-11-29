@@ -1,0 +1,20 @@
+Eureka是什么
+
+
+	Eureka是Netifx的一个子模块，也是核心模块之一，Eureka是一个基于REST的服务，用于定位服务，
+	以实现云端中间层服务发现和故障转移，服务注册与发现对于微服务架构来说是非常重要的，有了服务发现与
+	注册，只需要使用服务和标识符，就可以访问到服务，而不需要修改服务调用的配置文件了，功能类似于dubbo的
+	注册中心，比如Zookeeper           
+	
+Spring Cloud 封装了 Nefix公司开发的Eureka 模块来实现服务注册与发现（请对比Zookeeper）
+
+Eureka 采用了C-S的设计架构。Eureka Server 作为服务注册功能的服务器，他是服务注册中心
+
+而系统中的其他微服务，使用Eureka的客户端连接到Eureka Server并维持心跳连接，这样系统的维护人员
+就可以通过Eureka Server来监控各个微服务是否正常运行，SpringCloud的一些其他模块（比如Zuul）
+就可以通过Eureka Server 来发现系统中的其他微服务，并执行相关的逻辑
+
+
+Eureka的自我保护 
+	自我保护机制 ：  好死不如赖活着
+      
