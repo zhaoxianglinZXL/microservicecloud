@@ -95,5 +95,7 @@
 		<module>microservicecloud-provider-dept-8001</module>
 		<module>microservicecloud-consumer-dept-80</module>
 		<module>microservicecloud-eurake-7001</module>
+		<module>microservicecloud-eurake-7002</module>
+		<module>microservicecloud-eurake-7003</module>
 	</modules>
 </project>

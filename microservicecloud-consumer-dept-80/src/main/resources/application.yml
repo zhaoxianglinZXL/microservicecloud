@@ -1,2 +1,8 @@
 server:
-  port: 80
+  port: 8080
+  
+# 自定义属性  服务方的访问路径 ip+端口 方便修改
+REST_URL_PREFIX: "http://localhost:8001"
+
+# 测试变量是否能取到
+restUrlSuffix: "http://localhost:8080"

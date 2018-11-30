@@ -3,6 +3,7 @@ package com.winner.springcloud.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +20,19 @@ import com.winner.springcloud.model.DeptInfo;
 @RequestMapping("/deptConsumer")
 public class DeptController_Consumer {
 	
-	private static final String REST_URL_PREFIX = "http://localhost:8001";
+	//@Value("${REST_URL_PREFIX}") //无法取static 静态变量的值
+	private static String REST_URL_PREFIX;
+	
+	@Value("${REST_URL_PREFIX}")//静态变量必须使用set方法进行赋值
+	public void setREST_URL_PREFIX(String rEST_URL_PREFIX) {
+		REST_URL_PREFIX = rEST_URL_PREFIX;
+	}
+
+	@Value("${server.port}")
+	private String port;
+	
+	@Value("${restUrlSuffix}")
+	private String restUrlSuffix;
 	
 	/**
 	 * 使用
@@ -46,11 +59,21 @@ public class DeptController_Consumer {
 		return restTemplate.getForObject(REST_URL_PREFIX+"/dept/queryDeptById?id="+id, DeptInfo.class);
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")//抛出的异常不用管它
 	@RequestMapping(value="/queryAll",method = RequestMethod.GET)
 	@ResponseBody
 	public List<DeptInfo> queryAll(){
+		System.out.println(REST_URL_PREFIX);
+		System.out.println(port);
+		System.out.println(restUrlSuffix);
 		return restTemplate.getForObject(REST_URL_PREFIX+"/dept/queryAll", List.class);
+	}
+	
+	//消费者调用服务的 服务发现
+	@RequestMapping(value="/discovery",method = RequestMethod.GET)
+	@ResponseBody
+	public Object discovery(){
+		return restTemplate.getForObject(REST_URL_PREFIX + "/dept/discovery", Object.class);
 	}
 	
 }
