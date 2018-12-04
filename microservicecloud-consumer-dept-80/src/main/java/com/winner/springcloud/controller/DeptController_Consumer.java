@@ -20,13 +20,19 @@ import com.winner.springcloud.model.DeptInfo;
 @RequestMapping("/deptConsumer")
 public class DeptController_Consumer {
 	
-	//@Value("${REST_URL_PREFIX}") //无法取static 静态变量的值
+	/*//  没使用负载均衡的时候这么使用
+	 * //@Value("${REST_URL_PREFIX}") //无法取static 静态变量的值
 	private static String REST_URL_PREFIX;
+	
 	
 	@Value("${REST_URL_PREFIX}")//静态变量必须使用set方法进行赋值
 	public void setREST_URL_PREFIX(String rEST_URL_PREFIX) {
 		REST_URL_PREFIX = rEST_URL_PREFIX;
-	}
+	}*/
+	
+	//使用负载均衡之后这么使用 他应该去访问的是微服务的名称  消费者对外暴露的服务
+	private static String REST_URL_PREFIX = "http://microservicecloud-dept";
+	
 
 	@Value("${server.port}")
 	private String port;
