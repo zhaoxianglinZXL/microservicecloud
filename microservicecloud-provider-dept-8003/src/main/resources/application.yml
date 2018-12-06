@@ -1,0 +1,49 @@
+server:
+  port: 8003
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml # mybtabis配置文件所在地址
+  type-aliases-package: com.winner.springcloud.model # 所有model别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                # mapper映射文件
+  
+  
+  
+spring:
+  application:  #即使是多个服务者的情况也不可修改 
+    name: microservicecloud-dept                     # 对外暴露的微服务名称 即注册中心显示的微服务名称 即Application的对应值
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource     # 当前数据源操作类型
+    driver-class-name: com.mysql.jdbc.Driver         # mysql驱动包
+    url: jdbc:mysql://localhost:3306/cloudDB03?characterEncoding=utf8       # mysql连接数据库路径
+    username: root
+    password: 123456  
+    dbcp2:
+      min-idle: 5                                    # 数据库连接池的最小维持连接数
+      initial-size: 5                                # 初始化连接数
+      max-total: 5                                   # 最大连接数
+      max-wait-millis: 200                           # 等待连接获取的最大超时时间
+   
+   
+      
+eureka:
+  client:  #将客户端注册进Eureka服务列表中
+    service-url: 
+      # 只有一个注册中心的时候可以使用如下配置 
+      #defaultZone: http://localhost:7001/eureka
+      # 集群版环境 且域名已经更改
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-dept8003  # 将注册中心的名称（Status）更改
+    prefer-ip-address: true #设置访问路径为IP地址（ 尽量设置为ip地址  不设置有可能是一串未知的字符串--别人的正常 不知道是不是自己配置的问题 待完善）
+ 
+ 
+ 
+# 这个配置了之后点击微服务名称之后 info路径就不会报找不到的问题了 而是 显示以下的信息
+info: #父包中必须引入maven-resources-plugin插件才可以
+  app.name: winner-microservicecloud # 软件名字
+  company.name: www.winner.com       # 公司名字
+  build.artifactId: $project.artifactId$  
+  build.version: $project.version$
+
+    

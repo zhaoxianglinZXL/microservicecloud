@@ -30,10 +30,15 @@ public class DeptController_Consumer {
 		REST_URL_PREFIX = rEST_URL_PREFIX;
 	}*/
 	
+	//Spring Cloud 封装了 Nefix公司开发的Eureka 模块来实现服务注册与发现（请对比Zookeeper）
+	//当服务者在只有一个时
 	//使用负载均衡之后这么使用 他应该去访问的是微服务的名称  消费者对外暴露的服务
-	private static String REST_URL_PREFIX = "http://microservicecloud-dept";
+	//private static String REST_URL_PREFIX = "http://microservicecloud-dept";
 	
-
+	
+	//Spring Cloud 封装了 Nefix公司开发的Eureka 模块来实现服务注册与发现（请对比Zookeeper）
+	//即使是多个微服务的情况下 多个微服务 对外暴露的微服务名还是没有更改的
+	private static String REST_URL_PREFIX = "http://microservicecloud-dept";
 	@Value("${server.port}")
 	private String port;
 	

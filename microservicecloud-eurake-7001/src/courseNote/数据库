@@ -1,0 +1,60 @@
+drop database if exists clouddb01;
+create database clouddb01 CHARACTER set utf8;
+
+use clouddb01;
+
+drop table if exists dept;
+create TABLE dept
+(
+	deptno int primary key auto_increment COMMENT '主键',
+	dname VARCHAR(100) UNIQUE COMMENT '部门名称',
+	db_source varchar(60) COMMENT '当前数据库'
+);
+
+insert into dept(dname,db_source) values("开发部",DATABASE());
+insert into dept(dname,db_source) values("人事部",DATABASE());
+insert into dept(dname,db_source) values("财务部",DATABASE());
+
+select * from dept;
+
+
+drop database if exists clouddb02;
+create database clouddb02 CHARACTER set utf8;
+
+use clouddb02;
+
+drop table if exists dept;
+create TABLE dept
+(
+	deptno int primary key auto_increment COMMENT '主键',
+	dname VARCHAR(100) UNIQUE COMMENT '部门名称',
+	db_source varchar(60) COMMENT '当前数据库'
+);
+
+insert into dept(dname,db_source) values("开发部",DATABASE());
+insert into dept(dname,db_source) values("人事部",DATABASE());
+insert into dept(dname,db_source) values("财务部",DATABASE());
+
+select * from dept;
+
+
+
+drop database if exists clouddb03;
+create database clouddb03 CHARACTER set utf8;
+
+use clouddb03;
+
+drop table if exists dept;
+create TABLE dept
+(
+	deptno int primary key auto_increment COMMENT '主键',
+	dname VARCHAR(100) UNIQUE COMMENT '部门名称',
+	db_source varchar(60) COMMENT '当前数据库'
+);
+
+insert into dept(dname,db_source) values("开发部",DATABASE());
+insert into dept(dname,db_source) values("人事部",DATABASE());
+insert into dept(dname,db_source) values("财务部",DATABASE());
+
+select * from dept;
+
