@@ -43,7 +43,7 @@ public class ConfigBean {//boot - spring applicationContext.xml --》 @Configura
 		//用这个就达到了 随机   不会 自动跳过 死掉的服务
 		//return new RandomRule();//达到的目的：用我们重新选择的随机算法替代默认的轮询
 		
-		//服务提供者 没有死掉 或者 停掉的时候 默认算法轮询 但是 其中一个死掉之后  会自动过滤掉死掉的服务（撞头之后 就是 访问死掉的服务 几次之后）
+		//服务提供者 没有死掉 或者 停掉的时候 默认算法 轮询 但是 其中一个死掉之后  会自动过滤掉死掉的服务（撞头之后 就是 访问死掉的服务 几次之后）
 		return new RetryRule();
 	}
 	
