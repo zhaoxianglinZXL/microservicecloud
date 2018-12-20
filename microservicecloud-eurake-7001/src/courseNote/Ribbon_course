@@ -15,3 +15,8 @@ Ribbon在工作时分成两步
  
 --Ribbon的核心控件IRule
 	IRule：根据特定算法中从服务列表中选取一个要访问的服务
+	
+	拥有的方法==》https://blog.csdn.net/gcxzflgl/article/details/82916262
+	
+-- 问题：依旧轮询策略，但是加上新需求，每隔服务器要求被调用5次，也即以前是每台机器一次，现在每台
+                   机器5次

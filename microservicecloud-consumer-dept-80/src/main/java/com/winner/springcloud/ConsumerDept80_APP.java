@@ -9,7 +9,6 @@ import com.winner.myrule.MySelfRule;
 
 @SpringBootApplication
 @EnableEurekaClient //声明自己是客户端
-
 /**
  *  自定义轮询算法的类 配置细节
  *  官方文档明确给出了警告！
