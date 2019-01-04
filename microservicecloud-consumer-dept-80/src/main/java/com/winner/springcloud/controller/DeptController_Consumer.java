@@ -47,7 +47,7 @@ public class DeptController_Consumer {
 	
 	/**
 	 * 使用
-	 *  使用resttemplate访问restful接口非常的简单粗暴无脑
+	 *  使用resttemplate访问restful接口非常的简单粗暴无脑=
 	 *  （url,requestMap,ResponseBean.class）这三个参数分别代表rest请求地址 、请求参数、http响应转换被转换成的对象类型
 	 */
 	@Autowired
