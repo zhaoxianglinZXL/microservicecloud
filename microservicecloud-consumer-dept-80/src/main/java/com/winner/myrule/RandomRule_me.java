@@ -31,6 +31,7 @@ public class RandomRule_me extends AbstractLoadBalancerRule
 	 */
 	public Server choose(ILoadBalancer lb , Object key)
 	{
+		System.out.println("进入了自定义算法");
 		if(lb == null)
 		{
 			return null;

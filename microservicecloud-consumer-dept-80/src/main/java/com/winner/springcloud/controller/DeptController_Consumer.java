@@ -67,6 +67,7 @@ public class DeptController_Consumer {
 	@ResponseBody
 	//查询一条部门信息
 	public DeptInfo queryDeptById(int id ){
+		System.out.println("访问的地址为"+REST_URL_PREFIX+"/dept/queryDeptById?id="+id);
 		return restTemplate.getForObject(REST_URL_PREFIX+"/dept/queryDeptById?id="+id, DeptInfo.class);
 	}
 	
@@ -77,6 +78,7 @@ public class DeptController_Consumer {
 		System.out.println(REST_URL_PREFIX);
 		System.out.println(port);
 		System.out.println(restUrlSuffix);
+		System.out.println("访问的地址为"+REST_URL_PREFIX+"/dept/queryAll");
 		return restTemplate.getForObject(REST_URL_PREFIX+"/dept/queryAll", List.class);
 	}
 	
