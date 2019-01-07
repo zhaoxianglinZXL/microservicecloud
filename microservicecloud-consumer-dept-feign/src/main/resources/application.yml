@@ -1,5 +1,13 @@
 server:
   port: 8080  #教程中是80 本地测试不通过更换成8080  
+  
+#测试hystrix的  api接口中配置多个fallback时需要添加以下代码
+#直接添加次属性会报错 必须在configBean中 配置 feignBuilder
+#BEGIN
+feign:
+  hystrix:
+    enabled: true  #开启
+#END
 
 eureka:
   client:

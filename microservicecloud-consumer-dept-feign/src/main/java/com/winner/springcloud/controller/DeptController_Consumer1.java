@@ -19,7 +19,7 @@ import com.winner.springcloud.model.DeptInfo;
  * 远程调用的时候 使用的这个controller 当我们使用了feign了 直接调用api中的service这里面的东西就不一样了
  */
 @Controller
-@RequestMapping("/deptConsumer")
+@RequestMapping("/deptConsumer1")
 public class DeptController_Consumer1 {
 	
 	/*//  没使用负载均衡的时候这么使用

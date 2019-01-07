@@ -23,6 +23,7 @@ public class DeptController_Consumer {
 	
 	//添加
 	@RequestMapping(value = "/addDept")
+	@ResponseBody
 	public boolean addDept(@RequestBody DeptInfo dept){
 		try {
 			return services.addDept(dept);
@@ -34,14 +35,16 @@ public class DeptController_Consumer {
 	
 	//根据id查询一条部门信息
 	@RequestMapping(value="/queryDeptById")
+	@ResponseBody
 	public DeptInfo queryDeptById(int id){
 		return services.queryDeptById(id);
 	}
 
 	//查询全部部门信息
 	@RequestMapping(value="/queryAll")
+	@ResponseBody
 	public List<DeptInfo> queryAll(){
-		System.out.println("进入了");
+		System.out.println("进入了microservicecloud-consumer-dept-feign的全查询方法");
 		return services.queryAll();
 	}
 	
