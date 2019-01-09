@@ -1,0 +1,35 @@
+server: 
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway  #对外暴露的微服务名称 同时也是本项目的项目名
+ 
+
+eureka:
+  client:  #将客户端注册进Eureka服务列表中
+    service-url: 
+      # 集群版环境 且域名已经更改
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: gateway-9527.com  # 将注册中心的名称（Status）更改
+    prefer-ip-address: true #设置访问路径为IP地址（ 尽量设置为ip地址  不设置有可能是一串未知的字符串--别人的正常 不知道是不是自己配置的问题 待完善）
+ 
+#此处配置了 可以通过访问路由网关中配置的假的服务名 去访问真实的微服务
+zuul:
+  #禁用一个微服务民
+  #ignored-services: microservicecloud-dept   #访问此服务时不能通过原服务名访问了 必须通过他虚拟的服务名才能访问
+  prefix: /winner #在微服务名前面添加前缀
+  ignored-services: "*" #禁用全部微服务名
+  routes:
+     mydept.serviceId: microservicecloud-dept  #此处应填写真实的微服务名
+     mydept.path: /mydept/**  #此处应是虚拟的微服务名
+    
+# 这个配置了之后点击微服务名称之后 info路径就不会报找不到的问题了 而是 显示以下的信息
+info: #父包中必须引入maven-resources-plugin插件才可以
+  app.name: winner-microservicecloud # 软件名字
+  company.name: www.winner.com       # 公司名字
+  build.artifactId: $project.artifactId$  
+  build.version: $project.version$
+ 
+ 

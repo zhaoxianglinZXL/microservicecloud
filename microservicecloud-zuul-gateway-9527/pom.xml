@@ -6,7 +6,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>microservicecloud-zuul-gateway-9527</artifactId>
-  <dependencies>
+   
+   
+   <dependencies>
 		<!-- zuul路由网关 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -31,7 +33,6 @@
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<!-- 日常标配 -->
-		<!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->
 		<dependency>
 			<groupId>com.winner.springcloud</groupId>
 			<artifactId>microservicecloud-api</artifactId>

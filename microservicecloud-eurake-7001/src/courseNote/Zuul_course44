@@ -1,0 +1,36 @@
+<!--BEGIN 路由基本配置 --》
+	Zuul包含了对请求的路由和过滤两个最主要的功能（网关）
+	
+	其中路由功能负责将外部请求转发到具体的微服务实例上，是实现外部访问统一入口的基础而过滤器功能则负责对请求的处理过程进行干预，是实现请求校验、服务聚合等功能的基础、Zuul和
+	Eurake进行整合，将Zuul自身注册为Eurake服务治理下的应用，同时从Eurake中获得其他微服务的消息，也即以后的访问微服务都是通过Zuul跳转后获得
+	
+		注意：Zuul服务最终还是会注册进Eureka
+		
+		@提供=代理+路由+过滤三大功能@
+		
+		官网资料：https://github.com/Netflix/zuul/wiki
+		
+	不用路由（zuul）http://localhost:8001/dept/queryDeptById?id=1
+	启用路由（zuul） http://myzuul.com:9527/microservicecloud-dept/dept/queryDeptById?id=1
+	
+	也即我们可以通过访问路由从而去访问微服务
+<!-- END路由基本配置 --》
+
+<!-- BEGIN路由访问映射规则 -->
+路由访问映射规则(滴滴打车虚拟号码类似于)
+
+	#此处配置了 可以通过访问路由网关中配置的假的服务名 去访问真实的微服务
+	zuul: 
+	  routes:
+	     mydept.serviceId: microservicecloud-dept  #此处应填写真实的微服务名
+	     mydept.path: /mydept/**  #此处应是虚拟的微服务名
+	以上配置导致原访问路径是可以的   http://myzuul.com:9527/microservicecloud-dept/dept/queryDeptById?id=1
+	 现在的访问路径也是可以的  http://myzuul.com:9527/mydept/dept/queryDeptById?id=1
+	 
+	这样原路径就被封了
+	zuul:
+	  ignored-services: microservicecloud-dept   #访问此服务时不能通过原服务名访问了 必须通过他虚拟的服务名才能访问
+	  routes:
+	     mydept.serviceId: microservicecloud-dept  #此处应填写真实的微服务名
+	     mydept.path: /mydept/**  #此处应是虚拟的微服务名
+<!-- END路由访问映射规则 -->
