@@ -8,7 +8,7 @@
   <artifactId>microservicecloud-config-3344</artifactId>
   
   <dependencies>
-		<!-- springCloud Config -->
+		<!-- springCloud Config 由他去给我们远程的github打交道-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>

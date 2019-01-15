@@ -18,4 +18,6 @@ eureka:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       #集群版配置
       defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      
+
         
