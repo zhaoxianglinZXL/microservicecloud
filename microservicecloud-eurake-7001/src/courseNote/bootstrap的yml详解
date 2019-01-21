@@ -1,0 +1,10 @@
+application.yml是用户级的资源配置项
+bootstrap.yml是系统级的    优先级更高
+
+
+Spring Cloud 会创建一个’BootStrap Context‘, 作为Spring应用的’application Context‘的父上下文，初始化的时候，
+‘bootStrap Context’负责从外部源加载配置属性并解析配置，这两个上下文共享一个从外部获取的“Environment”,
+‘BootStrap’属性有高优先级，默认情况下，他们不会被本地配置覆盖，“BootStrap context” 和 ”Application Context“有着
+不同的约定
+
+所以就新增了一个“BootStrap.yml”文件，保证“bootStrap Context” 和 “Application Context”配置的分离

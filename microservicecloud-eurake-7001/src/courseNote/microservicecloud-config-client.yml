@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active:
+    - dev
+
+--- #必须的
+
+server: 
+  port: 8201
+spring:
+  profiles: dev #开发环境
+  application:
+    name: microservicecloud-config-client
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-dev.com:7001/eureka/ #与eureka的 访问路径是不一样的请仔细对比
+    
+---
+
+server: 
+  port: 8202
+spring:
+  profiles: test #test环境
+  application:
+    name: microservicecloud-config-client
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-teset.com:7001/eureka/ #与eureka的 访问路径是不一样的请仔细对比
+    
+# 请保存为UTF-8格式

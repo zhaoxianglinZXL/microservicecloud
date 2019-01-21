@@ -1,0 +1,7 @@
+$ git status //查看当前文件夹git的状态
+$ git clone+git地址 将仓库克隆到本地
+
+//开始提交
+$ git add .
+$ git commit -m "第一次提交springcloud-config的东西"
+$ git push origin master

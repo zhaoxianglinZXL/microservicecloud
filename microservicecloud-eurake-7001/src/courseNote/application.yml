@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active:
+    - dev
+
+---
+
+spring:
+  profiles: dev #开发环境
+  application:
+    name: microservicecloud-config-winner-dev
+    
+---
+
+spring:
+  profiles: test #测试环境
+  application:
+    name: microservicecloud-config-winner-test
+    
+# 请保存为UTF-8格式
+
+
+#就是在这里的他是用于上传到github上 然后在通过config3344去访问的
