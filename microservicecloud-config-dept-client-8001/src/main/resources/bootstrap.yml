@@ -1,0 +1,12 @@
+spring: 
+  cloud: 
+    config: 
+      name: microservicecloud-config-dept-client     #需要从github上读取的资源名称，注意没有yml后缀名
+      #profile: test  # 决定你访问的什么环境
+      profile: dev  
+      label: master 
+      uri: http://config-3344.com:3344      #SpringCloudConfig获取的服务地址
+      
+      
+      #http://localhost:7001/ 出现eureka首页配置成功  第一次可能失败 
+      #注意配置文件 host文件中eureka的域名是否与服务器上的一致
